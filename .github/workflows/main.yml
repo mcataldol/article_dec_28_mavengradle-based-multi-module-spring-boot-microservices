@@ -1,11 +1,9 @@
 name: CI Pipeline
-
 on: [push]
 
 jobs:
-
   build: 
     runs-on: ubuntu-latest
-    steps:
-    -  name: Checkout
-    -  uses: actions/checkout@v4.0.0
+      steps:
+        name: Checkout
+        uses: actions/checkout@v4.0.0
