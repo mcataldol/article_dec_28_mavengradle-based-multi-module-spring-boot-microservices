@@ -18,9 +18,12 @@ jobs:
               chmod +x gradlew
               ./gradlew clean :service-a:build
               
-
-        - name: deploy with docker
-          run: |
+  deploy:
+    needs: build
+    runs-on: self-hosted
+    steps:
+          - name: deploy with docker
+            run: |
               docker run -d -p 8081:8080 -e spring.profiles.active=prod -e serviceb.url=http://<HOST_IP>:8082 -e servicec.url=http://<HOST_IP>:8083 narramadan/spring-multi-module-service-service-a
 
     
